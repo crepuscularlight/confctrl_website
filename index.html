@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ConfCtrl | Confidence-Aware Camera Control</title>
+<meta name="description" content="ConfCtrl enables precise camera control in video diffusion through confidence-aware interpolation, generating novel views from just two input images.">
+<meta name="citation_title" content="ConfCtrl: Enabling Precise Camera Control in Video Diffusion via Confidence-Aware Interpolation">
+<meta name="citation_conference_title" content="ECCV 2026"><meta name="theme-color" content="#1e293b">
+<link rel="stylesheet" href="static/style.css"><script defer src="static/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#abstract">Skip to content</a>
+<main>
+<header class="hero wrap">
+<p class="venue">ECCV 2026</p>
+<h1>ConfCtrl: Enabling Precise Camera Control in Video Diffusion via Confidence-Aware Interpolation</h1>
+<p class="authors"><a href="https://scholar.google.com/citations?user=W22lURwAAAAJ&amp;hl=en">Liudi Yang</a><sup>1</sup>, George Eskandar<sup>4</sup>, Fengyi Shen<sup>3</sup>, Mohammad Altillawi<sup>4</sup>, Yang Bai<sup>2,5</sup>, Chi Zhang<sup>4</sup>, Ziyuan Liu<sup>4</sup>, Abhinav Valada<sup>1</sup></p>
+<p class="affiliations"><span><sup>1</sup> University of Freiburg</span><span><sup>2</sup> Ludwig Maximilian University of Munich</span><span><sup>3</sup> Technical University of Munich</span><span><sup>4</sup> Huawei Heisenberg Research Center</span><span><sup>5</sup> Munich Center for Machine Learning (MCML)</span></p>
+<nav class="links" aria-label="Project resources"><a class="button" href="https://doi.org/10.1007/978-3-032-37026-6_11">Paper ↗</a><a class="button" href="#video">▶ Video</a><a class="button" href="static/pdfs/poster.pdf">Poster ↓</a><a class="button" href="#citation">Citation</a></nav>
+</header>
+<section class="wrap intro" id="video" aria-label="Introduction video">
+<video controls playsinline preload="metadata" poster="static/images/video-poster.jpg"><source src="static/videos/confctrl-introduction.mp4" type="video/mp4">Your browser does not support video. <a href="static/videos/confctrl-introduction.mp4">Download the introduction.</a></video>
+<p class="caption">Two input views. A prescribed camera path. Geometrically consistent novel views.</p>
+</section>
+<section class="band" id="abstract"><div class="prose"><h2>Abstract</h2><p>We address the challenge of novel view synthesis from only two input images under large viewpoint changes. Existing regression-based methods lack the capacity to reconstruct unseen regions, while camera-guided diffusion models often deviate from intended trajectories due to noisy point cloud projections or insufficient conditioning from camera poses. To address these issues, we propose ConfCtrl, a confidence-aware video interpolation framework that enables diffusion models to follow prescribed camera poses while completing unseen regions. ConfCtrl initializes the diffusion process by combining a confidence-weighted projected point cloud latent with noise as the conditioning input. It then applies a Kalman-inspired predict–update mechanism, treating the projected point cloud as a noisy measurement and using learned residual corrections to balance pose-driven predictions with noisy geometric observations. This allows the model to rely on reliable projections while down-weighting uncertain regions, yielding stable, geometry-aware generation. Experiments on multiple datasets show that ConfCtrl produces geometrically consistent and visually plausible novel views, effectively reconstructing occluded regions under large viewpoint changes.</p></div></section>
+<section class="wrap section"><h2>Precise camera control from two views</h2><p class="lead">Combining the completion ability of video diffusion with explicit geometric guidance.</p><figure><img src="static/images/teaser.webp" alt="ConfCtrl overview comparing video interpolation, camera-guided diffusion, and feedforward reconstruction" loading="lazy"><figcaption>ConfCtrl inherits the prior of a first-and-last-frame interpolation model and adds confidence-aware geometry for precise camera control.</figcaption></figure></section>
+<section class="band"><div class="wrap"><h2>Method</h2><p class="lead">Trust reliable geometry. Refine uncertain projections.</p><figure><img src="static/images/method.webp" alt="ConfCtrl architecture with confidence-weighted initialization and camera-conditioned prediction and update modules" loading="lazy"><figcaption>Confidence-aware initialization and a Kalman-inspired camera-conditioning mechanism guide the video diffusion process.</figcaption></figure><div class="steps"><div><h3>01 · Initialize</h3><p>Combine a confidence-weighted projected point cloud latent with noise to adapt video interpolation to novel view synthesis.</p></div><div><h3>02 · Predict</h3><p>Condition the latent state on the target camera pose to guide generation along the prescribed trajectory.</p></div><div><h3>03 · Update</h3><p>Use projected geometry as a noisy measurement, learning residual corrections that reduce the influence of uncertain regions.</p></div></div></div></section>
+<section class="wrap section"><h2>Qualitative results</h2><p class="lead">Explore the comparisons and generalization examples.</p><div class="tabs" role="tablist" aria-label="Result figures"><button id="tab-comparison" role="tab" aria-selected="true" aria-controls="comparison">Baseline comparison</button><button id="tab-generalization" role="tab" aria-selected="false" aria-controls="generalization" tabindex="-1">Zero-shot generalization</button></div><figure id="comparison" role="tabpanel" aria-labelledby="tab-comparison"><img src="static/images/baseline_comparison_eccv.webp" alt="Qualitative comparison of ConfCtrl and baseline methods" loading="lazy"><figcaption>Visual comparison with existing methods under challenging viewpoint changes.</figcaption></figure><figure id="generalization" role="tabpanel" aria-labelledby="tab-generalization" hidden><img src="static/images/zero_shot_poster.webp" alt="Zero-shot novel view synthesis examples on new datasets" loading="lazy"><figcaption>Generalization to new datasets without dataset-specific training.</figcaption></figure></section>
+<section class="band"><div class="wrap"><h2>Video results</h2><p class="lead">Example sequences from the supplied research material.</p><div class="video-grid"><figure><video controls muted loop playsinline preload="none" poster="static/images/teddybear.jpg"><source src="static/videos/teddybear.mp4" type="video/mp4"></video><figcaption>Teddy bear</figcaption></figure><figure><video controls muted loop playsinline preload="none" poster="static/images/dl3dv.jpg"><source src="static/videos/dl3dv.mp4" type="video/mp4"></video><figcaption>DL3DV scene</figcaption></figure><figure><video controls muted loop playsinline preload="none" poster="static/images/inference_video_000.jpg"><source src="static/videos/inference_video_000.mp4" type="video/mp4"></video><figcaption>Novel view synthesis</figcaption></figure></div></div></section>
+<section class="wrap section"><h2>Poster</h2><a class="poster" href="static/pdfs/poster.pdf" aria-label="Open full-resolution ConfCtrl poster PDF"><img src="static/images/poster.webp" alt="ConfCtrl research poster showing the challenge, method, and quantitative and qualitative results" loading="lazy"></a><p class="caption"><a href="static/pdfs/poster.pdf">Open full-resolution poster (PDF) ↗</a></p></section>
+<section class="band" id="citation"><div class="prose"><div class="citation-head"><h2>BibTeX</h2><button id="copy" class="copy" type="button">Copy</button></div><pre><code id="bibtex">@inproceedings{yang2026confctrl,
+  title={ConfCtrl: Enabling Precise Camera Control in Video
+         Diffusion via Confidence-Aware Interpolation},
+  author={Yang, Liudi and Eskandar, George and Shen, Fengyi
+          and Altillawi, Mohammad and Bai, Yang and Zhang, Chi
+          and Liu, Ziyuan and Valada, Abhinav},
+  booktitle={Computer Vision -- ECCV 2026},
+  year={2026},
+  publisher={Springer Nature Switzerland},
+  doi={10.1007/978-3-032-37026-6_11}
+}</code></pre><p id="copy-status" role="status" aria-live="polite"></p></div></section>
+</main><footer><p>ConfCtrl · ECCV 2026</p><p>Layout inspired by the CoVAR project page and the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>.</p><a href="#">Back to top ↑</a></footer>
+</body></html>

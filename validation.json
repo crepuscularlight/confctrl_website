@@ -1,0 +1,31 @@
+{
+  "local_links": "passed",
+  "unique_ids": "passed",
+  "videos": [
+    {
+      "file": "confctrl-introduction.mp4",
+      "bytes": 43471268,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "dl3dv.mp4",
+      "bytes": 615091,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "inference_video_000.mp4",
+      "bytes": 799911,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "teddybear.mp4",
+      "bytes": 544818,
+      "full_decode": "passed",
+      "faststart": true
+    }
+  ],
+  "browser_qa": "Unavailable: Windows browser runtime fails with CreateProcessWithLogonW error 1385."
+}
