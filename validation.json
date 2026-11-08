@@ -3,8 +3,32 @@
   "unique_ids": "passed",
   "videos": [
     {
+      "file": "confctrl-dl3dv-classroom.mp4",
+      "bytes": 96367,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "confctrl-dl3dv.mp4",
+      "bytes": 167695,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
       "file": "confctrl-introduction.mp4",
       "bytes": 43471268,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "confctrl-teddybear-orbit.mp4",
+      "bytes": 77461,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "confctrl-teddybear.mp4",
+      "bytes": 87159,
       "full_decode": "passed",
       "faststart": true
     },
@@ -17,6 +41,18 @@
     {
       "file": "inference_video_000.mp4",
       "bytes": 799911,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "selected-media58.mp4",
+      "bytes": 134783,
+      "full_decode": "passed",
+      "faststart": true
+    },
+    {
+      "file": "selected-media76.mp4",
+      "bytes": 58070,
       "full_decode": "passed",
       "faststart": true
     },
